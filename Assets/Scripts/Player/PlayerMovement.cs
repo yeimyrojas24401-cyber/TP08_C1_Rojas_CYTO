@@ -9,12 +9,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
+    [Header("Visuals")]
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
     private Rigidbody2D rb;
     private float horizontalInput;
-    private bool isGrounded;
     private int jumpCount;
     private bool jumpRequested;
     private bool jumpCutRequested;
+
+    private bool isGrounded;
+    public bool IsGrounded => isGrounded;
+    private float facingDirection = 1f;
+    public float FacingDirection => facingDirection;
+
 
     private void Awake()
     {
@@ -28,17 +36,26 @@ public class PlayerMovement : MonoBehaviour
         {
             horizontalInput -= 1f;
         }
+
         if (AnyKeyHeld(playerData.RightKeys))
         {
             horizontalInput += 1f;
         }
+
         if (AnyKeyDown(playerData.JumpKeys))
         {
             jumpRequested = true;
         }
+
         if (AnyKeyUp(playerData.JumpKeys))
         {
             jumpCutRequested = true;
+        }
+
+        if(horizontalInput != 0f)
+        {
+            facingDirection = horizontalInput;
+            spriteRenderer.flipX = facingDirection < 0f;
         }
     }
 
