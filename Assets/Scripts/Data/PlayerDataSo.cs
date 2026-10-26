@@ -25,7 +25,26 @@ public class PlayerDataSo : ScriptableObject
     public KeyCode[] LeftKeys => leftKeys;
     [SerializeField] private KeyCode[] rightKeys = { KeyCode.D, KeyCode.RightArrow }; 
     public KeyCode[] RightKeys => rightKeys;
-    [SerializeField] private KeyCode[] jumpKeys = { KeyCode.Space, KeyCode.W, KeyCode.UpArrow };
+    [SerializeField] private KeyCode[] jumpKeys = { KeyCode.Space};
     public KeyCode[] JumpKeys => jumpKeys;
+
+    [Header("Attack")]
+    [SerializeField] private KeyCode[] attackKeys = { KeyCode.J, KeyCode.Mouse0 };
+    public KeyCode[] AttackKeys => attackKeys;
+
+    [SerializeField] private KeyCode[] upKeys = {KeyCode.W, KeyCode.UpArrow };
+    public KeyCode[] UpKeys => upKeys;
+
+    [SerializeField] private KeyCode[] downKeys = { KeyCode.S, KeyCode.DownArrow };
+    public KeyCode[] DownKeys => downKeys;
+
+    [SerializeField] private int attackDamage = 1;
+    public int AttackDamage => attackDamage;
+
+    [SerializeField] private Vector2 attackSize = new Vector2(1.6f, 0.6f);
+    public Vector2 AttackSize => attackSize;
+
+    [SerializeField] private float attackCoolDown = 0.35f;
+    public float AttackCoolDown => attackCoolDown;
 
 }

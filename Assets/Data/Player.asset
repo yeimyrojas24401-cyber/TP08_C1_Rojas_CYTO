@@ -17,3 +17,12 @@ MonoBehaviour:
   jumpCutMultiplier: 0.5
   maxJumps: 2
   groundCheckRadius: 0.15
+  leftKeys: 6100000014010000
+  rightKeys: 6400000013010000
+  jumpKeys: 20000000
+  attackKeys: 6a00000043010000
+  upKeys: 7700000011010000
+  downKeys: 7300000012010000
+  attackDamage: 1
+  attackSize: {x: 1.6, y: 0.6}
+  attackCoolDown: 0.35
