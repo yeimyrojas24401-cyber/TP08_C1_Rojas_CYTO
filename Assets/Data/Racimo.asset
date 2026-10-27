@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Racimo
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDataSo
   maxHealth: 3
-  deathVfx: {fileID: 0}
+  deathVfx: {fileID: 8094843478169940566, guid: 070b535fb6c29414389223145931eecc, type: 3}
   score: 100
   lootMin: 1
   lootMax: 3
+  moveSpeed: 1.5

@@ -24,4 +24,17 @@ public class EnemyDataSo : ScriptableObject
     [SerializeField] private float moveSpeed = 1.0f;
     public float MoveSpeed => moveSpeed;
 
+    [Header("Toxic Cocci")]
+    [SerializeField] private float dangerRange = 6f;
+    public float DangerRange => dangerRange;
+
+    [SerializeField] private float inflateSize = 1.3f;
+    public float InflateSize => inflateSize;
+
+    [SerializeField] private float windUpTime = 0.4f;
+    public float WindUpTime => windUpTime;
+
+    [SerializeField] private float timeBetweenShoots = 2f;
+    public float TimeBetweenShoots => timeBetweenShoots;
+
 }
