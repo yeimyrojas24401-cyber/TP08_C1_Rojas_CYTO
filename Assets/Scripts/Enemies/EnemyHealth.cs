@@ -29,14 +29,13 @@ public class EnemyHealth : MonoBehaviour
         {
             isDead = true;
             Die();
-            return;
         }
 
     }
     private void Die()
     {
         OnDied?.Invoke();
-        if (enemyData.DeathVfx)
+        if (enemyData.DeathVfx != null)
         {
             Instantiate(enemyData.DeathVfx, transform.position, Quaternion.identity);
         }

@@ -19,4 +19,9 @@ public class EnemyDataSo : ScriptableObject
 
     [SerializeField] private int lootMax = 3;
     public int LootMax => lootMax;
+
+    [Header("Movement")]
+    [SerializeField] private float moveSpeed = 1.0f;
+    public float MoveSpeed => moveSpeed;
+
 }
