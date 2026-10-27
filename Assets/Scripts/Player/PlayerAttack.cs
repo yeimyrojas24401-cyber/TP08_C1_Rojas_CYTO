@@ -5,6 +5,7 @@ public class PlayerAttack : MonoBehaviour
     [Header("Data")]
     [SerializeField] private PlayerDataSo playerData;
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private PlayerHealth playerHealth;
 
     [Header("Attack Points")]
     [SerializeField] private Transform attackPointSide;
@@ -13,6 +14,16 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
 
     private float attackTimer;
+
+    private void OnEnable()
+    {
+        playerHealth.OnDied += HandleDied;
+    }
+
+    private void OnDisable()
+    {
+        playerHealth.OnDied -= HandleDied;
+    }
 
     private void Update()
     {
@@ -61,6 +72,10 @@ public class PlayerAttack : MonoBehaviour
         Gizmos.DrawWireCube(attackPointDown.position, new Vector2(s.y, s.x));
     }
 
+    private void HandleDied()
+    {
+        enabled = false;
+    }
     private bool AnyKeyDown(KeyCode[] keys)
     {
         foreach (KeyCode key in keys)

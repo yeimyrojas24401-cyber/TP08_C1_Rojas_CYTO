@@ -4,6 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Data")]
     [SerializeField] private PlayerDataSo playerData;
+    [SerializeField] private PlayerHealth playerHealth;
 
     [Header("Ground Check")]
     [SerializeField] private Transform groundCheck;
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private float horizontalInput;
+    private float knockBackTimer;
     private int jumpCount;
     private bool jumpRequested;
     private bool jumpCutRequested;
@@ -23,10 +25,21 @@ public class PlayerMovement : MonoBehaviour
     private float facingDirection = 1f;
     public float FacingDirection => facingDirection;
 
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void OnEnable()
+    {
+        playerHealth.OnTakeDamage += HandleKnockBack;
+        playerHealth.OnDied += HandleDied;
+    }
+
+    private void OnDisable()
+    {
+        playerHealth.OnTakeDamage -= HandleKnockBack;
+        playerHealth.OnDied -= HandleDied;
     }
 
     private void Update()
@@ -52,10 +65,15 @@ public class PlayerMovement : MonoBehaviour
             jumpCutRequested = true;
         }
 
-        if(horizontalInput != 0f)
+        if (horizontalInput != 0f)
         {
             facingDirection = horizontalInput;
             spriteRenderer.flipX = facingDirection < 0f;
+        }
+
+        if (knockBackTimer > 0f)
+        {
+            knockBackTimer -= Time.deltaTime;
         }
     }
 
@@ -83,6 +101,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+        if (knockBackTimer > 0)
+            return;
         rb.linearVelocity = new Vector2(horizontalInput * playerData.MoveSpeed, rb.linearVelocity.y);
     }
 
@@ -108,16 +128,30 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (groundCheck == null || playerData == null) return;
+        if (groundCheck == null || playerData == null)
+            return;
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(groundCheck.position, playerData.GroundCheckRadius);
+    }
+
+    private void HandleKnockBack(float direction)
+    {
+        rb.linearVelocity = new Vector2(playerData.KnockBackForce.x * direction, playerData.KnockBackForce.y);
+        knockBackTimer = playerData.KnockBackDuration;
+    }
+
+    private void HandleDied()
+    {
+        rb.linearVelocity = new Vector2(0f, 0f);
+        enabled = false;
     }
 
     private bool AnyKeyHeld(KeyCode[] keys)
     {
         foreach (KeyCode key in keys)
         {
-            if (Input.GetKey(key)) return true;
+            if (Input.GetKey(key))
+                return true;
         }
         return false;
     }
@@ -126,7 +160,8 @@ public class PlayerMovement : MonoBehaviour
     {
         foreach (KeyCode key in keys)
         {
-            if (Input.GetKeyDown(key)) return true;
+            if (Input.GetKeyDown(key))
+                return true;
         }
         return false;
     }
@@ -135,7 +170,8 @@ public class PlayerMovement : MonoBehaviour
     {
         foreach (KeyCode key in keys)
         {
-            if (Input.GetKeyUp(key)) return true;
+            if (Input.GetKeyUp(key))
+                return true;
         }
         return false;
     }

@@ -39,7 +39,8 @@ public class PlayerAnimation : MonoBehaviour
     }
     private void PlayAnimation(int state)
     {
-        if (state == currentState) return;
+        if (state == currentState) 
+            return;
         animator.Play(state);
         currentState = state;
     }

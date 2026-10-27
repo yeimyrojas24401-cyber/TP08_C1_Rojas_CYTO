@@ -26,3 +26,8 @@ MonoBehaviour:
   attackDamage: 1
   attackSize: {x: 1.6, y: 0.6}
   attackCoolDown: 0.35
+  maxHealth: 5
+  invulnerabilityDuration: 1
+  blinkInterval: 0.1
+  knockBackForce: {x: 6, y: 4}
+  knockBackDuration: 0.2

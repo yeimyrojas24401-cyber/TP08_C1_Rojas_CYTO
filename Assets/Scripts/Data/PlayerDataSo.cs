@@ -47,4 +47,20 @@ public class PlayerDataSo : ScriptableObject
     [SerializeField] private float attackCoolDown = 0.35f;
     public float AttackCoolDown => attackCoolDown;
 
+    [Header("Health")]
+    [SerializeField] private int maxHealth = 5;
+    public int MaxHealth => maxHealth;
+
+    [SerializeField] private float invulnerabilityDuration = 1f;
+    public float InvulnerabilityDuration => invulnerabilityDuration;
+
+    [SerializeField] private float blinkInterval = 0.1f;
+    public float BlinkInterval => blinkInterval;
+
+    [SerializeField] private Vector2 knockBackForce = new Vector2(6f, 4f);
+    public Vector2 KnockBackForce => knockBackForce;
+
+    [SerializeField] private float knockBackDuration = 0.2f;
+    public float KnockBackDuration => knockBackDuration;
+
 }
