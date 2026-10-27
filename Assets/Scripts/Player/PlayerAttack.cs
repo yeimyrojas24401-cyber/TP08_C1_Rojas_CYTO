@@ -57,7 +57,11 @@ public class PlayerAttack : MonoBehaviour
         Collider2D[] hits = Physics2D.OverlapBoxAll(center, size, 0f, enemyLayer);
         foreach (Collider2D hit in hits)
         {
-            Debug.Log("Golpe a " + hit.name);
+            if(hit.TryGetComponent(out EnemyHealth enemyHealth))
+            {
+                enemyHealth.TakeDamage(playerData.AttackDamage);
+            }
+
         }
 
     }
