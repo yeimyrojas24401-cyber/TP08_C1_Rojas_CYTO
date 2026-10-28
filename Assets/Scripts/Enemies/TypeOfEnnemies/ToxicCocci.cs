@@ -4,6 +4,7 @@ using System.Collections;
 public class ToxicCocci : MonoBehaviour
 {
     [SerializeField] private EnemyDataSo toxicCocciData;
+    [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private Transform visual;
     [SerializeField] private Transform firePoint;
@@ -31,8 +32,12 @@ public class ToxicCocci : MonoBehaviour
         visual.localScale = originalScale * toxicCocciData.InflateSize;
         yield return new WaitForSeconds(toxicCocciData.WindUpTime);
         Vector2 direction = ((Vector2)target.position - (Vector2)firePoint.position).normalized;
-        Debug.Log("Disparo hacia " + direction);
+
+        Projectile toxin = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+        toxin.Init(direction);
+
         visual.localScale = originalScale;
+
         yield return new WaitForSeconds(toxicCocciData.TimeBetweenShoots);
         isShooting =false;
     }
