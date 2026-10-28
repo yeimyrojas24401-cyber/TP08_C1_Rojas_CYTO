@@ -342,6 +342,7 @@ GameObject:
   - component: {fileID: 4176173220701448389}
   - component: {fileID: 69153790601259993}
   - component: {fileID: 1097498601143973515}
+  - component: {fileID: 6489245386019457410}
   - component: {fileID: 1949085537829538915}
   - component: {fileID: 1732732461521044378}
   - component: {fileID: 3775172420354446571}
@@ -412,6 +413,20 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1949085537829538915}
   pointA: {fileID: 7759987764876272270}
   pointB: {fileID: 5902985415492223700}
+--- !u!114 &6489245386019457410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6752592368426781144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7edc0de4e252f14e8780999c5913679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClusterSplit
+  enemyData: {fileID: 11400000, guid: 2f90828e39eb4a1438ca9c690ee59faa, type: 2}
+  spriteRenderer: {fileID: 1949085537829538915}
 --- !u!212 &1949085537829538915
 SpriteRenderer:
   serializedVersion: 2

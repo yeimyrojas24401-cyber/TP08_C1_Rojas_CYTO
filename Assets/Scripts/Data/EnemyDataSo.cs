@@ -37,4 +37,20 @@ public class EnemyDataSo : ScriptableObject
     [SerializeField] private float timeBetweenShoots = 2f;
     public float TimeBetweenShoots => timeBetweenShoots;
 
+    [Header("Cluster Patrol")]
+
+    [SerializeField] private GameObject smallCluster;
+    public GameObject SmallCluster => smallCluster;
+
+    [SerializeField] private float splitTime = 8f;
+    public float SplitTime => splitTime;
+
+    [SerializeField] private float warningTime = 0.4f;
+    public float WarningTime => warningTime;
+
+    [SerializeField] private float splitOffsetX = 2.5f;
+    public float SplitOffsetX => splitOffsetX;
+
+    [SerializeField] private float splitOffsetY = 0f;
+    public float SplitOffsetY => splitOffsetY;
 }

@@ -13,16 +13,26 @@ public class ClusterPatrol : MonoBehaviour
     private Vector2 currentTarget;
 
     private bool isGoingToB;
+    private bool startGoingToB = true;
     private const float ArriveThreshold = 0.1f;
+
 
     private void Start()
     {
         positionA = pointA.position;
         positionB = pointB.position;
+        isGoingToB = startGoingToB;
 
-        currentTarget = positionB;
+        if (isGoingToB)
+        {
+            currentTarget = positionB;
+        }
+        else
+        {
+            currentTarget = positionA;
+        }
         spriteRenderer.flipX = (currentTarget.x < rb.position.x);
-        isGoingToB = true;
+
     }
 
     private void FixedUpdate()
@@ -46,5 +56,10 @@ public class ClusterPatrol : MonoBehaviour
             spriteRenderer.flipX = (currentTarget.x < rb.position.x);
 
         }
+    }
+
+    public void SetStartDirection(bool goToB)
+    {
+        startGoingToB = goToB;
     }
 }
