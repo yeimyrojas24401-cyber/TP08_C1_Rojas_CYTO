@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     private float invulnerabilityTimer;
     public bool IsInvulnerable => invulnerabilityTimer > 0; //responde a la necesidad de que no todo baje de un solo bajon
     private bool isDead;
+    public bool IsFullHealth => currentHealth >= playerData.MaxHealth;
 
     public event UnityAction<int> OnHealthChanged;
     public event UnityAction<float> OnTakeDamage;
@@ -64,5 +65,13 @@ public class PlayerHealth : MonoBehaviour
         }
 
         invulnerabilityTimer = playerData.InvulnerabilityDuration;
+    }
+
+    public void AddLife(int amount)
+    {
+        if (isDead)
+            return;
+        currentHealth = Mathf.Min(currentHealth + amount, playerData.MaxHealth);
+        OnHealthChanged?.Invoke(currentHealth);
     }
 }

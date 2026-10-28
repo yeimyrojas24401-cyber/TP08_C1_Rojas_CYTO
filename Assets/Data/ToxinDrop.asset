@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ToxinDrop
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileDataSo
   speed: 8
-  lifeTime: 2
+  lifeTime: 3
   damage: 1
   hitLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 576
   hitVfx: {fileID: 0}

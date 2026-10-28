@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Data")]
     [SerializeField] private PlayerDataSo playerData;
     [SerializeField] private PlayerHealth playerHealth;
+    [SerializeField] private PlayerHealing playerHealing;
 
     [Header("Ground Check")]
     [SerializeField] private Transform groundCheck;
@@ -103,6 +104,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (knockBackTimer > 0)
             return;
+        if(playerHealing.IsHealing)
+        {
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            return;
+        }
         rb.linearVelocity = new Vector2(horizontalInput * playerData.MoveSpeed, rb.linearVelocity.y);
     }
 

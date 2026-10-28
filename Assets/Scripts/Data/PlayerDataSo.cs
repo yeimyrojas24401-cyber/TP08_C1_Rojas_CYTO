@@ -63,4 +63,23 @@ public class PlayerDataSo : ScriptableObject
     [SerializeField] private float knockBackDuration = 0.2f;
     public float KnockBackDuration => knockBackDuration;
 
+    [Header("Energy")]
+    [SerializeField] private float maxAtp = 100f;
+    public float MaxAtp => maxAtp;
+
+    [SerializeField] private float atpPerHit = 8f;
+    public float AtpPerHit => atpPerHit;
+
+    [SerializeField] private float atpPerKill = 20f;
+    public float AtpPerKill => atpPerKill;
+
+    [SerializeField] private float healCost = 33f;
+    public float HealCost => healCost;
+
+    [SerializeField] private float healDuration =1f;
+    public float HealDuration => healDuration;
+
+    [SerializeField] private KeyCode[] healKeys = { KeyCode.L };
+    public KeyCode[] HealKeys => healKeys;
+
 }

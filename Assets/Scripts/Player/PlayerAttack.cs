@@ -6,6 +6,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private PlayerDataSo playerData;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerHealth playerHealth;
+    [SerializeField] private PlayerEnergy playerEnergy;
 
     [Header("Attack Points")]
     [SerializeField] private Transform attackPointSide;
@@ -59,7 +60,12 @@ public class PlayerAttack : MonoBehaviour
         {
             if(hit.TryGetComponent(out EnemyHealth enemyHealth))
             {
-                enemyHealth.TakeDamage(playerData.AttackDamage);
+                bool killed = enemyHealth.TakeDamage(playerData.AttackDamage);
+                playerEnergy.AddAtp(playerData.AtpPerHit);
+                if(killed)
+                {
+                    playerEnergy.AddAtp(playerData.AtpPerKill);
+                }
             }
 
         }

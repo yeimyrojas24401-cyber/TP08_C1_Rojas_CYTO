@@ -17,10 +17,10 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = enemyData.MaxHealth;
         OnHealthChanged?.Invoke(CurrentHealth);
     }
-    public void TakeDamage(int amount)
+    public bool TakeDamage(int amount)
     {
         if (isDead)
-            return;
+            return false;
 
         currentHealth -= amount;
         OnHealthChanged?.Invoke(CurrentHealth);
@@ -29,8 +29,9 @@ public class EnemyHealth : MonoBehaviour
         {
             isDead = true;
             Die();
+            return true;
         }
-
+        return false;
     }
     private void Die()
     {

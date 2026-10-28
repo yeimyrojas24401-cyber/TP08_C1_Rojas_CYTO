@@ -25,3 +25,5 @@ MonoBehaviour:
   smallCluster: {fileID: 6752592368426781144, guid: 7ab182e9a0d7b364aaf2e8bcff07292e, type: 3}
   splitTime: 8
   warningTime: 0.4
+  splitOffsetX: 2.5
+  splitOffsetY: -0.2
