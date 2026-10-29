@@ -9,4 +9,10 @@ public class PickableDataSo : ScriptableObject
     public GameObject PickupParticles => pickupParticles;
     [SerializeField] private AudioClip pickupClip;
     public AudioClip PickupClip => pickupClip;
+
+    [Header("Float")]
+    [SerializeField] private float floatAmplitude = 0.5f;
+    public float FloatAmplitude => floatAmplitude;
+    [SerializeField] private float floatSpeed = 2f;
+    public float FloatSpeed => floatSpeed;
 }

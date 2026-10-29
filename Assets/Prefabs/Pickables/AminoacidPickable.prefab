@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8834186646460356997}
   - component: {fileID: 229549260235402249}
+  - component: {fileID: -2208775340326137400}
   - component: {fileID: 3660889308747655235}
   - component: {fileID: 7391497279443492834}
   m_Layer: 10
@@ -48,6 +49,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AminoacidPickable
   pickableData: {fileID: 11400000, guid: a7bb3ce2d6d66ab419ab3790a9f27959, type: 2}
   runProgressData: {fileID: 11400000, guid: ca6fbf48124e8814da0b7c8401b9a007, type: 2}
+--- !u!114 &-2208775340326137400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4028223936735946549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc349abad30caf47bfe53579b91c5a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickableFloat
+  pickableData: {fileID: 11400000, guid: a7bb3ce2d6d66ab419ab3790a9f27959, type: 2}
 --- !u!212 &3660889308747655235
 SpriteRenderer:
   serializedVersion: 2
