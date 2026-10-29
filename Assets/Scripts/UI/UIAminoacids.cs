@@ -22,6 +22,6 @@ public class UIAminoacids : MonoBehaviour
 
     private void HandleAminoacidHUD(int aminoacidCounter)
     {
-        aminoacidText.text = "aminoacid x " + aminoacidCounter.ToString();
+        aminoacidText.text = " x " + aminoacidCounter.ToString();
     }
 }
