@@ -20,6 +20,12 @@ public class EnemyDataSo : ScriptableObject
     [SerializeField] private int lootMax = 3;
     public int LootMax => lootMax;
 
+    [SerializeField] private Pickable lootPrefab;
+    public Pickable LootPrefab => lootPrefab;
+
+    [SerializeField] private float lootSpread = 1.5f;
+    public float LootSpread => lootSpread;
+
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 1.0f;
     public float MoveSpeed => moveSpeed;
