@@ -18,7 +18,6 @@ public class PlayerPowerUps : MonoBehaviour
         damageBoost.Tick(Time.deltaTime);
         shield.Tick(Time.deltaTime);
         extraJump.Tick(Time.deltaTime);
-        Debug.Log(damageBoost.TimeRemain);
     }
 
     public void Activate(PowerUpType type, float duration)
