@@ -7,6 +7,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private PlayerEnergy playerEnergy;
+    [SerializeField] private PlayerPowerUps playerPowerUps;
 
     [Header("Attack Points")]
     [SerializeField] private Transform attackPointSide;
@@ -60,7 +61,12 @@ public class PlayerAttack : MonoBehaviour
         {
             if(hit.TryGetComponent(out EnemyHealth enemyHealth))
             {
-                bool killed = enemyHealth.TakeDamage(playerData.AttackDamage);
+                int damage = playerData.AttackDamage;
+                if(playerPowerUps.IsDamageBoosted)
+                {
+                    damage = Mathf.CeilToInt(damage * playerData.DamageBoostMultiplier); //redondear hacia arriba y volver a un int
+                }
+                bool killed = enemyHealth.TakeDamage(damage);
                 playerEnergy.AddAtp(playerData.AtpPerHit);
                 if(killed)
                 {

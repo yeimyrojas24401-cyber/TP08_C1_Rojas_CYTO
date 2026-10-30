@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private PlayerDataSo playerData;
+    [SerializeField] private PlayerPowerUps playerPowerUps;
 
     private int currentHealth;
     public int CurrentHealth => currentHealth;
@@ -51,7 +52,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeHit(float direction)
     {
-        if (isDead || IsInvulnerable)
+        if (isDead || IsInvulnerable || playerPowerUps.IsShielded)
             return;
         currentHealth--;
         OnHealthChanged?.Invoke(CurrentHealth);

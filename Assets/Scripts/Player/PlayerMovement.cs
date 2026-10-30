@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerDataSo playerData;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private PlayerHealing playerHealing;
+    [SerializeField] private PlayerPowerUps playerPowerUps;
 
     [Header("Ground Check")]
     [SerializeField] private Transform groundCheck;
@@ -114,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (jumpRequested && jumpCount < playerData.MaxJumps)
+        if (jumpRequested && jumpCount < GetMaxJumps())
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
             rb.AddForce(Vector2.up * playerData.JumpForce, ForceMode2D.Impulse);
@@ -152,6 +153,12 @@ public class PlayerMovement : MonoBehaviour
         enabled = false;
     }
 
+    private int GetMaxJumps()
+    {
+        if (playerPowerUps.HasExtraJump)
+            return playerData.MaxJumps + playerData.ExtraJumps;
+        return playerData.MaxJumps;
+    }
     private bool AnyKeyHeld(KeyCode[] keys)
     {
         foreach (KeyCode key in keys)

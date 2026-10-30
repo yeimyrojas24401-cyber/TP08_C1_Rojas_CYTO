@@ -15,4 +15,10 @@ public class PickableDataSo : ScriptableObject
     public float FloatAmplitude => floatAmplitude;
     [SerializeField] private float floatSpeed = 2f;
     public float FloatSpeed => floatSpeed;
+
+    [Header("Powerup")]
+    [SerializeField] private PowerUpType powerUpType;
+    public PowerUpType PowerUpType => powerUpType;
+    [SerializeField] private float powerUpDuration = 15f;
+    public float PowerUpDuration => powerUpDuration;
 }

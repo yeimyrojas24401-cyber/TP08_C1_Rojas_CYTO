@@ -82,4 +82,10 @@ public class PlayerDataSo : ScriptableObject
     [SerializeField] private KeyCode[] healKeys = { KeyCode.L };
     public KeyCode[] HealKeys => healKeys;
 
+    [Header("PowerUps")]
+    [SerializeField] private float damageBoostMultiplier = 1.5f;
+    public float DamageBoostMultiplier => damageBoostMultiplier;
+    [SerializeField] private int extraJumps = 1;
+    public int ExtraJumps => extraJumps;
+
 }
