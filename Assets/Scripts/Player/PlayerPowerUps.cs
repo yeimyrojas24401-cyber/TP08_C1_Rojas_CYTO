@@ -13,10 +13,6 @@ public class PlayerPowerUps : MonoBehaviour
     public bool IsShielded => shield.IsActive;
     public bool HasExtraJump => extraJump.IsActive;
 
-    private void Start()
-    {
-        Activate(PowerUpType.DamageBoost, 3);
-    }
     private void Update()
     {
         damageBoost.Tick(Time.deltaTime);
