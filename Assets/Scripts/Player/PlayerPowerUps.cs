@@ -3,8 +3,11 @@ using UnityEngine;
 public class PlayerPowerUps : MonoBehaviour
 {
     private TimedEffect damageBoost = new TimedEffect();
+    public TimedEffect DamageBoost => damageBoost;
     private TimedEffect shield = new TimedEffect();
+    public TimedEffect Shield => shield;
     private TimedEffect extraJump = new TimedEffect();
+    public TimedEffect ExtraJump => extraJump;
 
     public bool IsDamageBoosted => damageBoost.IsActive;
     public bool IsShielded => shield.IsActive;

@@ -88,4 +88,11 @@ public class PlayerDataSo : ScriptableObject
     [SerializeField] private int extraJumps = 1;
     public int ExtraJumps => extraJumps;
 
+    [SerializeField] private Color damageBoostColor = new Color(0.71f, 0.18f, 0.31f);
+    public Color DamageBoostColor => damageBoostColor;
+    [SerializeField] private Color shieldColor = new Color(0.09f, 0.93f, 0.88f);
+    public Color ShieldColor => shieldColor;
+    [SerializeField] private Color extraJumpColor = new Color(0.09f, 0.63f, 0.47f);
+    public Color ExtraJumpColor => extraJumpColor;
+
 }
